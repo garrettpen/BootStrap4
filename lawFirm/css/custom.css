@@ -1,0 +1,18 @@
+h2.text-center, h2.text-uppercase,h2.text-white{
+  padding-bottom: 3rem;
+}
+
+#bg-picture{
+  background-image: url("../img/supremeCourt.jpg");
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+}
+
+#mainNav{
+  padding: 0;
+}
+
+#SubHeader{
+  animation-delay: 1s;
+}
