@@ -7,6 +7,8 @@ h2.text-center, h2.text-uppercase,h2.text-white{
   height: 100%;
   width: 100%;
   background-size: cover;
+  display: block;
+  margin: 0 auto;
 }
 
 #mainNav{
@@ -15,4 +17,14 @@ h2.text-center, h2.text-uppercase,h2.text-white{
 
 #SubHeader{
   animation-delay: 1s;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+dt{
+  height: 25px;
+}
+
+#cardRow{
+  display: inline-flex;
 }
