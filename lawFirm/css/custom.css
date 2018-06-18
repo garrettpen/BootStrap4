@@ -21,10 +21,13 @@ h2.text-center, h2.text-uppercase,h2.text-white{
   padding-top: 0;
 }
 
-dt{
-  height: 25px;
+#payment_form > div.row{
+  margin-left: .1rem;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  height: 2rem;
 }
 
-#cardRow{
-  display: inline-flex;
+.row #iframesCardCvv{
+  margin-right: 30px;
 }
