@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <script>
+
+//document.getElementById("principalBalance").innerHTML = principalBalance;
+var downPayment;
+var purchasePrice;
+var interestRate;
+var years;
+var M; //monthly mortgage payment
+var P;
+var I;
+var N;
+
+function setValues()
+{
+  downPayment = document.getElementById("downPayment").value;
+  purchasePrice = document.getElementById("purchasePrice").value;
+  interestRate = document.getElementById("Interest").value;
+  years = document.getElementById("loanLength").value;
+  M; //monthly mortgage payment
+  P = purchasePrice-purchasePrice*(downPayment*.1);
+  I = interestRate / 100 / 12; //monthly interest rate
+  N = years * 12; //number of payments months
+}
+function monthlyPayment(p, n, i) {
+  M =  p * i * (Math.pow(1 + i, n)) / (Math.pow(1 + i, n) - 1);
+  console.log(m);
+  document.getElementById("mortgagePayment").value = M;
+}
+function buttonClick()
+{
+  setValues();
+  monthlyPayment(p, n, i);
+}
+
+
+  </script>
+  <title>Rental Calculator</title>
+</head>
+
+<body class="bg-light">
+
+  <div class="container" style="height: 100%">
+    <!--<div class="col-md-4 col-md-offset-4 bg-primary">-->
+
+
+    <h1>Rental Calculator</h1>
+    <form class="form-horizontal" action="/action_page.php">
+      <div class="row">
+
+        <!--Loan Details-->
+        <div class="col-sm-6">
+          <div class="form-group bg-secondary rounded" style="padding-bottom:20px" id="loanDetails">
+            <h2>Loan Details</h2>
+            <label for="purchasePrice" class="control-label text-light">Purchase Price</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control bg-light" id="purchasePrice">
+            </div>
+
+            <label for="downPayment" class="control-label text-light">Percentage Of Downpayment</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control form-horizontal" id="downPayment">
+            </div>
+
+            <label for="Interest" class="control-label text-light">Interest Rate</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control form-horizontal" id="Interest">
+            </div>
+
+            <label for="loanLength" class="control-label text-light">Length Of Loan (in years)</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control form-horizontal" id="loanLength">
+            </div>
+
+            <label for="repairBudget" class="control-label text-light">Repair Budget</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control form-horizontal" id="repairBudget">
+            </div>
+
+            <label for="closingCosts" class="control-label text-light">Closing Costs</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control form-horizontal" id="closingCosts">
+            </div>
+
+            <label for="estimatedRent" class="control-label text-light">Estimated Rent</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control form-horizontal" id="estimatedRent">
+            </div>
+          </div>
+        </div>
+
+        <!--Expenses-->
+        <div class="col-sm-6">
+          <div class="form-group bg-secondary rounded" style="padding-bottom:20px"id="loanDetails">
+            <h2>Expenses</h2>
+            <label for="capEx" class="control-label text-light">Capital Expendetures %</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control bg-light" id="capEx">
+            </div>
+
+            <label for="vacancy" class="control-label text-light">Vacancy %</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control form-horizontal" id="vacancy">
+            </div>
+
+            <label for="utilities" class="control-label text-light">Utilities</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control form-horizontal" id="utilities">
+            </div>
+
+            <label for="annualTaxes" class="control-label text-light">Annual Taxes</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control form-horizontal" id="annualTaxes">
+            </div>
+
+            <label for="insurance" class="control-label text-light">Insurance</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control form-horizontal" id="insurance">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--<summary-->
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group bg-secondary rounded" style="padding-bottom:20px"id="loanDetails">
+            <h2>Summary</h2>
+            <label for="totalExpenditures" class="control-label text-light">Total Expenditures</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control bg-light" id="totalExpenditures">
+            </div>
+
+            <label for="mortgagePayment" class="control-label text-light">Mortgage Payment</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control form-horizontal" id="mortgagePayment">
+            </div>
+
+            <label for="totalMonthlyCost" class="control-label text-light">Total Monthly Cost</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control form-horizontal" id="totalMonthlyCost">
+            </div>
+          </div>
+        </div>
+
+        <!--results-->
+        <div class="col-sm-6">
+          <div class="form-group bg-secondary rounded" style="padding-bottom:20px"id="loanDetails">
+            <h2>Results</h2>
+            <label id="principalBalance">change</label>
+
+            </p>
+
+            <label for="downPayment" class="control-label text-light">Percentage Of Downpayment</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control form-horizontal" id="downPayment">
+            </div>
+
+            <label for="Interest" class="control-label text-light">Interest Rate</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control form-horizontal" id="Interest">
+            </div>
+
+            <label for="loanLength" class="control-label text-light">Length Of Loan (in years)</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control form-horizontal" id="loanLength">
+            </div>
+
+            <input type="button" id="submitButton" value="Calculate" onclick="buttonClick();"/>
+
+            <!--</div>-->
+          </div>
+        </div>
+      </div>
+    </form>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+  </div>
+  </div>
+</body>
+
+</html>
